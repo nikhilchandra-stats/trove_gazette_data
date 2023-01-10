@@ -235,4 +235,7 @@ for (j in 1:dim(x_tibble)[1]) {
 
 }
 
+dat_comp_list2 <- dat_comp_list %>% 
+  map_dfr(bind_rows)
 
+write.csv(dat_comp_list2, file = "trove_gazette_2004_2007.csv", row.names = F)
