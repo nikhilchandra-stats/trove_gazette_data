@@ -210,7 +210,7 @@ for (j in 1:dim(x_tibble)[1]) {
   url_num <- x_tibble$url_replace[j]
   dat_current <- x_tibble$dates_x[j]
 
-  for (i in 0:pages_x) {
+  for (i in pages_x) {
 
     c = c + 1
     Sys.sleep(0.5)
