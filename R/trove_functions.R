@@ -135,9 +135,15 @@ extract_details_from_tove_pdf <- function(pdf_link = "data/gazette_2007_08_09.pd
         safely_extract_relavent_details() %>%
         pluck('result')
     ) %>%
-    keep(~!is.null(.x)) %>%
+    keep(~!is.null(.x))
+  
+  if(class(all_data[[1]]) != "NULL") {
+   
+  all_data <-  all_data %>%
     map_dfr(bind_rows) %>%
-    filter(!is.na(ags_number))
+      filter(!is.na(ags_number))
+    
+  }
 
   return(all_data)
 
